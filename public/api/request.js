@@ -6,19 +6,11 @@ axios
   .then((response) => showAllTask(response.data))
   .catch((error) => console.error(error));
 
-const mapToArray = (object) => {
-  const array = [];
-  for (const idObject in object) {
-    array.push({
-      ...object[idObject],
-      idDB: idObject,
-    });
-    console.log(array);
-  }
-};
-
 const showAllTask = (data) => {
-  mapToArray(data);
+  for (const idObject in data) {
+    task = data[idObject];
+    createTask(task);
+  }
 };
 
 const createTask = (task) => {
