@@ -1,16 +1,29 @@
-const API_URL =
-  "https://my-json-server.typicode.com/mariafernandamonroy/M3U2TrelloApp-mafemonroy";
+const API_URL = "https://trella-65809-default-rtdb.firebaseio.com";
+// "https://my-json-server.typicode.com/mariafernandamonroy/M3U2TrelloApp-mafemonroy";
 
 axios
-  .get(`${API_URL}/tasks`)
+  .get(`${API_URL}/tasks.json`)
   .then((response) => showAllTask(response.data))
   .catch((error) => console.error(error));
 
+const mapToArray = (object) => {
+  const array = [];
+  for (const idObject in object) {
+    array.push({
+      ...object[idObject],
+      idDB: idObject,
+    });
+    console.log(array);
+  }
+};
+
 const showAllTask = (data) => {
-  data.map((task) => createTask(task));
+  mapToArray(data);
 };
 
 const createTask = (task) => {
+  console.log(task.person);
+
   let newTask = document.createElement("article");
   newTask.classList.add("card-task");
 
@@ -37,13 +50,12 @@ const createTask = (task) => {
   taskCreateDate.innerHTML = `<span class= "card-task__date">Creación:</span> ${dateFormat(
     task.created
   )}`;
-  
+
   newTask.appendChild(taskTitle);
   newTask.appendChild(taskDetails);
   newTask.appendChild(taskResponsible);
   newTask.appendChild(taskDate);
   newTask.appendChild(taskCreateDate);
-
 
   let columnToDo = document.querySelector("#todoTasks");
   let columnInProgress = document.querySelector("#inProgressTask");

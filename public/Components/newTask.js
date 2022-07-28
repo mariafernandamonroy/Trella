@@ -1,12 +1,14 @@
+
 const form = document.querySelector("#formNewTask");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = event.target;
-  
+
   let today = new Date();
 
-  let createDateTask = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  let createDateTask =
+    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
 
   const data = {
     title: formData.titleTask.value,
@@ -16,9 +18,9 @@ form.addEventListener("submit", (event) => {
     created: createDateTask,
     state: "to-do",
   };
-  console.log(data);
+
   axios
-    .post(`${API_URL}/tasks`, data)
+    .post(`${API_URL}/tasks.json`, data)
     .then((result) => {
       createTask(result.data);
       formData.reset();

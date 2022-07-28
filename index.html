@@ -66,5 +66,20 @@
     <script src="helpers/toggleModal.js"></script>
     <script src="helpers/draganddrop.js"></script>
     <script src="helpers/gesturesHammer.js"></script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDxFKvjQmq98xqI667Rf-4uzYunU5KSAtk",
+        authDomain: "trella-65809.firebaseapp.com",
+        projectId: "trella-65809",
+        storageBucket: "trella-65809.appspot.com",
+        messagingSenderId: "148211488306",
+        appId: "1:148211488306:web:05c703343b770cead98e2b"
+      };
+
+      const app = initializeApp(firebaseConfig);
+    </script>
   </body>
 </html>

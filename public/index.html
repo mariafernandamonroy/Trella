@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Styles/style.css" rel="stylesheet" type="text/css" />
+    <title>Trella</title>
+    <link rel="icon" href="images/favicon.png">
+  </head>
+  <body>
+    <div id="message">
+      <div class="container-title-newTask">
+        <div class="container-title-logo"><img src="images/favicon.png" alt="Imagen logo" class="logoImg"><h1>Trella</h1></div>
+        <div class="contariner-btn"><button type="button" class="btnNewTask" id="btnNewTask">Crear nueva tarea</button></div>
+      </div>
+      <main>
+        <div class="container-cards">
+          <div class="col">
+            <div class="card-complete" >
+              <div class="card-header"><h2>Por hacer</h2></div>
+              <div class="card-body" id="todoTasks"></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card-complete" >
+              <div class="card-header"><h2>En Progreso</h2></div>
+              <div class="card-body" id="inProgressTasks"></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card-complete" >
+              <div class="card-header"><h2>Finalizada</h2></div>
+              <div class="card-body" id="doneTasks"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <aside class="aside-app" id="modalNewTask">
+        <div class="container-NewTaskForm">
+          <div class="card-newTaks-complete" >
+            <div class="card-newTaks-header"><h2>Nueva Tarea</h2></div>
+            <form class="card-newTaks-body" id="formNewTask">
+              <Input class="form-control" id="titleTask" type="text" placeholder="Título de la tarea" required></Input>
+              <Input class="form-control" id="detailsTask" type="text" placeholder="Descripción de la tarea" required></Input>
+              <Input class="form-control" id="responsibleTask" type="text" placeholder="Responsable" required></Input>
+              <Input class="form-control" id="deadLineTask" type="date" placeholder="Fecha de entrega" required></Input>
+              <div class="container-newtaks-buttons">
+                <div class="col"><button type="submit" class="btnSaveNewTask" id="btnSaveNewTask">Guardar</button></div>
+                <div class="col"><button type="reset" class="btnCancelNewTask" id="btnCancelNewTask">Cancelar</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </aside>
+  
+      <script src="libraries/axios.js"></script>
+      <script src="libraries/moment.js"></script>
+      <script src="libraries/hammer.js"></script>  
+      <script src="libraries/draggable.js"></script> 
+      <script src="libraries/fontawesome.js"></script>
+  
+      <script src="api/request.js"></script>
+      <script src="helpers/dates.js"></script>
+      <script src="Components/newTask.js"></script>
+      <script src="helpers/toggleModal.js"></script>
+      <script src="helpers/draganddrop.js"></script>
+      <script src="helpers/gesturesHammer.js"></script>
+  
+      <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+  
+        const firebaseConfig = {
+          apiKey: "AIzaSyDxFKvjQmq98xqI667Rf-4uzYunU5KSAtk",
+          authDomain: "trella-65809.firebaseapp.com",
+          projectId: "trella-65809",
+          storageBucket: "trella-65809.appspot.com",
+          messagingSenderId: "148211488306",
+          appId: "1:148211488306:web:05c703343b770cead98e2b"
+        };
+  
+        const app = initializeApp(firebaseConfig);
+      </script>
+    </div>
+  </body>
+</html>

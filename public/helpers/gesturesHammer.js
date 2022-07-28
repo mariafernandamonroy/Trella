@@ -3,6 +3,7 @@ const APP = document.querySelector("#app");
 const hammerjs = new Hammer(APP);
 
 hammerjs.on("panleft panright", (event) => {
+  console.log(event.type)
   if (event.pointerType === "touch") {
     const windowWidth = window.screen.width;
     const distance = Math.floor(event.distance) >= 50;
