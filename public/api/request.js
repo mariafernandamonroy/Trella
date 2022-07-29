@@ -1,5 +1,4 @@
 const API_URL = "https://trella-65809-default-rtdb.firebaseio.com";
-// "https://my-json-server.typicode.com/mariafernandamonroy/M3U2TrelloApp-mafemonroy";
 
 axios
   .get(`${API_URL}/tasks.json`)
@@ -14,8 +13,6 @@ const showAllTask = (data) => {
 };
 
 const createTask = (task) => {
-  console.log(task.person);
-
   let newTask = document.createElement("article");
   newTask.classList.add("card-task");
 

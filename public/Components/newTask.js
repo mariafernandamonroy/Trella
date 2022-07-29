@@ -1,4 +1,3 @@
-
 const form = document.querySelector("#formNewTask");
 
 form.addEventListener("submit", (event) => {
@@ -21,8 +20,8 @@ form.addEventListener("submit", (event) => {
 
   axios
     .post(`${API_URL}/tasks.json`, data)
-    .then((result) => {
-      createTask(result.data);
+    .then(() => {
+      createTask(data);
       formData.reset();
     })
     .catch((error = console.error(error)));
